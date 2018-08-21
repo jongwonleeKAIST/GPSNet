@@ -39,7 +39,7 @@ function OutputImgs = CartesianToOmni(dir, seqname)
     
     temp = sprintf('../img_files/%s/', seqname)
     savedir = strcat(temp, filename)
-    set(gcf, 'Color','black')
-    export_fig(savedir, '-jpg', '-m2')
+    set(gcf, 'Color','black', 'inches', [0 0 224 224])
+    export_fig(savedir, '-png', '-m2')
     %% 
     % _Copyright 2015 The MathWorks, Inc._

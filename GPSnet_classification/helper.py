@@ -15,10 +15,11 @@ def init(seq_name):
 
 
 class datasource(object):
-    def __init__(self, images, imgclasses, filenames):
+    def __init__(self, images, poses, filenames, classes):
         self.images = images
-        self.imgclasses = imgclasses
+        self.poses = poses
         self.filenames = filenames
+        self.classes = classes
 """
 def centeredCrop(img, output_side_length):
     height, width, depth = img.shape
@@ -74,9 +75,10 @@ def preprocess(images):
 
 
 def get_data(dataset):
-    imgclasses = []
+    poses = []
     images = []
     filenames = []
+    classes = []
 
     with open(directory+dataset) as f:
         next(f)  # skip the 3 header lines
@@ -84,15 +86,17 @@ def get_data(dataset):
         next(f)
         for line in f:
             fname, lat, lng, utmx, utmy, classnum = line.split()
-            classnum = int(classnum)
-            imgclasses.append(classnum)
+            p0 = int(utmx)
+            p1 = int(utmy)
+            poses.append((p0,p1))
             images.append(directory+fname)
             filenames.append(fname)
+            classes.append(classnum)
     images_out = preprocess(images)
-    k = datasource(images_out, imgclasses, filenames) # list 'poses' (utm coordinates of each image) is saved as an member variable of K, which is a type of class 'datasource'
+    k = datasource(images_out, poses, filenames, classes) # list 'poses' (utm coordinates of each image) is saved as an member variable of K, which is a type of class 'datasource'
 
     return k
-# inside the class 'datasource', there are lists 'datasource.images' and 'datasource.imgclasses'. Each of their elements are (Width, Height, RGB channels) (e.g. (224, 224, 3)) numpy array and int (classnumber).
+# inside the class 'datasource', there are lists 'datasource.images' and 'datasource.poses'. Each of their elements are (Width, Height, RGB channels) (e.g. (224, 224, 3)) numpy array and int (classnumber).
 
 
 
@@ -101,39 +105,42 @@ def getKings():
     datasource_test = get_data(dataset_test)
 
     images_train = []
-    imgclasses_train = []
+    poses_train = []
     filenames_train = []
+    classes_train = []
 
     images_test = []
-    imgclasses_test = []
+    poses_test = []
     filenames_test = []
+    classes_test = []
 
     for i in range(len(datasource_train.images)):
         images_train.append(datasource_train.images[i])
-        imgclasses_train.append((datasource_train.imgclasses[i]))
+        poses_train.append((datasource_train.poses[i]))
         filenames_train.append(datasource_train.filenames[i])
+        classes_train.append((datasource_train.classes[i]))
 
     for i in range(len(datasource_test.images)):
         images_test.append(datasource_test.images[i])
-        imgclasses_test.append((datasource_test.imgclasses[i]))
+        poses_test.append((datasource_test.poses[i]))
         filenames_test.append(datasource_test.filenames[i])
-
+        classes_test.append((datasource_test.classes[i]))
     #print "its first element: "
-    #print type(datasource(images_train, imgclasses_train).images[0])
+    #print type(datasource(images_train, poses_train).images[0])
     #print "its first element: "
-    #print type(datasource(images_test, imgclasses_test).images[0])
+    #print type(datasource(images_test, poses_test).images[0])
 
 
-    return datasource(images_train, imgclasses_train, filenames_train), datasource(images_test, imgclasses_test, filenames_test)
+    return datasource(images_train, poses_train, filenames_train, classes_train), datasource(images_test, poses_test, filenames_test, classes_test)
 
     #print "typeof datasouce:"
-    #print type(datasource(images_train, imgclasses_train))
+    #print type(datasource(images_train, poses_train))
     #print "its member variables: "
-    #print type(datasource(images_train, imgclasses_train).images)
+    #print type(datasource(images_train, poses_train).images)
     #print "its first element: "
-    #print type(datasource(images_train, imgclasses_train).images[0])
+    #print type(datasource(images_train, poses_train).images[0])
     #print "its shape: "
-    #print datasource(images_train, imgclasses_train).images[0].shape
+    #print datasource(images_train, poses_train).images[0].shape
 
 """
 typeof datasouce:
