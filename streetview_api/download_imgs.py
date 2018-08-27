@@ -71,7 +71,7 @@ targetLon = None
 with open(datafilename) as csvDataFile:
     csvReader = csv.reader(csvDataFile)
 
-    num_true_data = 0
+    num_true_data = -1
     num_count = 0
     for row in csvReader:
         num_count += 1

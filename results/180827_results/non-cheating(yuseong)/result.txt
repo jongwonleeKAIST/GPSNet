@@ -1,0 +1,1 @@
+fc 128 shows best performance. (top1: 92%, top5: 96%)
