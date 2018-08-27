@@ -209,7 +209,7 @@ if __name__ == "__main__":
     xlegend = max(xs_test + xs_pred) - min(xs_test + xs_pred)
     ylegend = max(ys_test + ys_pred) - min(ys_test + ys_pred)
     
-    plt.figure(1, figsize=(xlegend/ylegend*10, 10))
+    plt.figure(1, figsize=(xlegend/ylegend*6, 6))
     
     """
     pts_test, = plt.plot(xs_test, ys_test, "bv")

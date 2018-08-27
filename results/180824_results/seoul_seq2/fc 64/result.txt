@@ -1,0 +1,541 @@
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+image_input (InputLayer)     (None, 224, 224, 3)       0         
+_________________________________________________________________
+block1_conv1 (Conv2D)        (None, 224, 224, 64)      1792      
+_________________________________________________________________
+block1_conv2 (Conv2D)        (None, 224, 224, 64)      36928     
+_________________________________________________________________
+block1_pool (MaxPooling2D)   (None, 112, 112, 64)      0         
+_________________________________________________________________
+block2_conv1 (Conv2D)        (None, 112, 112, 128)     73856     
+_________________________________________________________________
+block2_conv2 (Conv2D)        (None, 112, 112, 128)     147584    
+_________________________________________________________________
+block2_pool (MaxPooling2D)   (None, 56, 56, 128)       0         
+_________________________________________________________________
+block3_conv1 (Conv2D)        (None, 56, 56, 256)       295168    
+_________________________________________________________________
+block3_conv2 (Conv2D)        (None, 56, 56, 256)       590080    
+_________________________________________________________________
+block3_conv3 (Conv2D)        (None, 56, 56, 256)       590080    
+_________________________________________________________________
+block3_pool (MaxPooling2D)   (None, 28, 28, 256)       0         
+_________________________________________________________________
+block4_conv1 (Conv2D)        (None, 28, 28, 512)       1180160   
+_________________________________________________________________
+block4_conv2 (Conv2D)        (None, 28, 28, 512)       2359808   
+_________________________________________________________________
+block4_conv3 (Conv2D)        (None, 28, 28, 512)       2359808   
+_________________________________________________________________
+block4_pool (MaxPooling2D)   (None, 14, 14, 512)       0         
+_________________________________________________________________
+block5_conv1 (Conv2D)        (None, 14, 14, 512)       2359808   
+_________________________________________________________________
+block5_conv2 (Conv2D)        (None, 14, 14, 512)       2359808   
+_________________________________________________________________
+block5_conv3 (Conv2D)        (None, 14, 14, 512)       2359808   
+_________________________________________________________________
+block5_pool (MaxPooling2D)   (None, 7, 7, 512)         0         
+_________________________________________________________________
+flatten (Flatten)            (None, 25088)             0         
+_________________________________________________________________
+bn_flatten (BatchNormalizati (None, 25088)             100352    
+_________________________________________________________________
+fc1 (Dense)                  (None, 64)                1605696   
+_________________________________________________________________
+bn1 (BatchNormalization)     (None, 64)                256       
+_________________________________________________________________
+fc2 (Dense)                  (None, 64)                4160      
+_________________________________________________________________
+bn2 (BatchNormalization)     (None, 64)                256       
+_________________________________________________________________
+fc3 (Dense)                  (None, 64)                4160      
+_________________________________________________________________
+bn3 (BatchNormalization)     (None, 64)                256       
+_________________________________________________________________
+fc_pose_utmx_utmy (Dense)    (None, 2)                 130       
+=================================================================
+Total params: 16,429,954
+Trainable params: 0
+Non-trainable params: 16,429,954
+_________________________________________________________________
+100%|██████████████████████████████████████| 4736/4736 [00:08<00:00, 569.12it/s]
+100%|██████████████████████████████████████████| 94/94 [00:00<00:00, 574.41it/s]
+Threshold: 36.2789881368
+sizeof errorlist :  94
+classes:  00095
+poses:  [ -86 -240]
+predicted_pose:  [ -78.986206 -252.43134 ]
+Iteration:   0   Error latlng (m):   14.273451108905128 
+
+classes:  00089
+poses:  [-153 -219]
+predicted_pose:  [-153.4958  -222.26805]
+Iteration:   1   Error latlng (m):   3.3054469808553866 
+
+classes:  00119
+poses:  [-22 -21]
+predicted_pose:  [-22.163977 -20.649443]
+Iteration:   2   Error latlng (m):   0.38701264550598685 
+
+classes:  00046
+poses:  [-220   18]
+predicted_pose:  [-219.15746    17.925297]
+Iteration:   3   Error latlng (m):   0.8458498086791042 
+
+classes:  00103
+poses:  [ -32 -200]
+predicted_pose:  [ -33.065845 -219.7637  ]
+Iteration:   4   Error latlng (m):   19.792421753537134 
+
+classes:  00079
+poses:  [-260 -218]
+predicted_pose:  [-260.23892 -214.12758]
+Iteration:   5   Error latlng (m):   3.8797848174758416 
+
+classes:  00057
+poses:  [-330   -6]
+predicted_pose:  [-357.23993     -9.3055525]
+Iteration:   6   Error latlng (m):   27.439759838484488 
+
+classes:  00051
+poses:  [-271   19]
+predicted_pose:  [-285.90646     14.0805855]
+Iteration:   7   Error latlng (m):   15.697238514063574 
+
+classes:  00116
+poses:  [-16 -50]
+predicted_pose:  [-18.620749 -52.655113]
+Iteration:   8   Error latlng (m):   3.730676750497739 
+
+classes:  00111
+poses:  [ -10 -124]
+predicted_pose:  [  -9.206425 -127.75273 ]
+Iteration:   9   Error latlng (m):   3.8357208084486936 
+
+classes:  00078
+poses:  [-270 -218]
+predicted_pose:  [-277.42822 -219.95871]
+Iteration:   10   Error latlng (m):   7.682124418772473 
+
+classes:  00104
+poses:  [ -29 -190]
+predicted_pose:  [ -27.917524 -201.2835  ]
+Iteration:   11   Error latlng (m):   11.335297472409337 
+
+classes:  00040
+poses:  [-149   12]
+predicted_pose:  [-150.41782    12.746416]
+Iteration:   12   Error latlng (m):   1.602291999547557 
+
+classes:  00036
+poses:  [-106   15]
+predicted_pose:  [-108.5965     12.415466]
+Iteration:   13   Error latlng (m):   3.663551405741972 
+
+classes:  00053
+poses:  [-289   20]
+predicted_pose:  [-306.16034    10.642245]
+Iteration:   14   Error latlng (m):   19.5459668463222 
+
+classes:  00077
+poses:  [-280 -214]
+predicted_pose:  [-278.84875 -216.76283]
+Iteration:   15   Error latlng (m):   2.993093637918321 
+
+classes:  00115
+poses:  [-17 -62]
+predicted_pose:  [-19.523987 -60.017586]
+Iteration:   16   Error latlng (m):   3.209435416170897 
+
+classes:  00108
+poses:  [ -19 -154]
+predicted_pose:  [ -13.055204 -150.3552  ]
+Iteration:   17   Error latlng (m):   6.973177535066573 
+
+classes:  00031
+poses:  [-37   0]
+predicted_pose:  [-39.680027   1.492894]
+Iteration:   18   Error latlng (m):   3.067780536278104 
+
+classes:  00035
+poses:  [-76   2]
+predicted_pose:  [-79.05363     4.0342946]
+Iteration:   19   Error latlng (m):   3.6691950728434684 
+
+classes:  00080
+poses:  [-251 -217]
+predicted_pose:  [-242.62315 -207.36006]
+Iteration:   20   Error latlng (m):   12.771059691271333 
+
+classes:  00109
+poses:  [ -15 -144]
+predicted_pose:  [ -10.361312 -142.2775  ]
+Iteration:   21   Error latlng (m):   4.948176031504424 
+
+classes:  00075
+poses:  [-308 -182]
+predicted_pose:  [-317.86417 -178.41995]
+Iteration:   22   Error latlng (m):   10.493737030805834 
+
+classes:  00084
+poses:  [-208 -212]
+predicted_pose:  [-210.36401 -214.41751]
+Iteration:   23   Error latlng (m):   3.381260121586197 
+
+classes:  00069
+poses:  [-347 -124]
+predicted_pose:  [-357.72992 -118.26634]
+Iteration:   24   Error latlng (m):   12.165771789829812 
+
+classes:  00044
+poses:  [-197   16]
+predicted_pose:  [-201.40407    14.730399]
+Iteration:   25   Error latlng (m):   4.5834158935241796 
+
+classes:  00052
+poses:  [-277   19]
+predicted_pose:  [-301.86832   18.85255]
+Iteration:   26   Error latlng (m):   24.868753776118375 
+
+classes:  00043
+poses:  [-186   15]
+predicted_pose:  [-200.51358    12.185469]
+Iteration:   27   Error latlng (m):   14.783964297763504 
+
+classes:  00045
+poses:  [-209   17]
+predicted_pose:  [-220.4847     16.957624]
+Iteration:   28   Error latlng (m):   11.484773611757145 
+
+classes:  00070
+poses:  [-343 -131]
+predicted_pose:  [-349.32416 -125.70865]
+Iteration:   29   Error latlng (m):   8.245809212959102 
+
+classes:  00085
+poses:  [-198 -212]
+predicted_pose:  [-205.2831  -211.14154]
+Iteration:   30   Error latlng (m):   7.333515158337722 
+
+classes:  00106
+poses:  [ -25 -174]
+predicted_pose:  [ -26.483843 -182.49725 ]
+Iteration:   31   Error latlng (m):   8.625839394046283 
+
+classes:  00063
+poses:  [-349  -70]
+predicted_pose:  [-352.1991   -61.13089]
+Iteration:   32   Error latlng (m):   9.428432195416184 
+
+classes:  00083
+poses:  [-219 -213]
+predicted_pose:  [-213.44739 -210.53896]
+Iteration:   33   Error latlng (m):   6.0735691738424205 
+
+classes:  00068
+poses:  [-352 -116]
+predicted_pose:  [-358.12088 -106.90785]
+Iteration:   34   Error latlng (m):   10.960489297437855 
+
+classes:  00056
+poses:  [-326    6]
+predicted_pose:  [-338.3192     21.194443]
+Iteration:   35   Error latlng (m):   19.56103577929491 
+
+classes:  00067
+poses:  [-355 -105]
+predicted_pose:  [-359.47845  -87.98829]
+Iteration:   36   Error latlng (m):   17.591329420036008 
+
+classes:  00102
+poses:  [ -36 -211]
+predicted_pose:  [ -30.941404 -209.61935 ]
+Iteration:   37   Error latlng (m):   5.243622098982025 
+
+classes:  00092
+poses:  [-120 -229]
+predicted_pose:  [-114.82615 -234.20694]
+Iteration:   38   Error latlng (m):   7.340364794584908 
+
+classes:  00094
+poses:  [ -98 -236]
+predicted_pose:  [ -93.58023 -240.76913]
+Iteration:   39   Error latlng (m):   6.502230743005765 
+
+classes:  00118
+poses:  [-18 -26]
+predicted_pose:  [ -4.548437 -14.373348]
+Iteration:   40   Error latlng (m):   17.779864318759735 
+
+classes:  00076
+poses:  [-302 -191]
+predicted_pose:  [-295.93106 -194.51723]
+Iteration:   41   Error latlng (m):   7.014478605555318 
+
+classes:  00081
+poses:  [-241 -216]
+predicted_pose:  [-232.9175  -220.90341]
+Iteration:   42   Error latlng (m):   9.453587849830907 
+
+classes:  00050
+poses:  [-262   19]
+predicted_pose:  [-271.3464     25.592478]
+Iteration:   43   Error latlng (m):   11.437484447852997 
+
+classes:  00038
+poses:  [-129   13]
+predicted_pose:  [-130.58965    20.684309]
+Iteration:   44   Error latlng (m):   7.8470107268989295 
+
+classes:  00091
+poses:  [-131 -226]
+predicted_pose:  [-130.54376 -227.7493 ]
+Iteration:   45   Error latlng (m):   1.8078154638578505 
+
+classes:  00105
+poses:  [ -26 -179]
+predicted_pose:  [ -19.998083 -177.84027 ]
+Iteration:   46   Error latlng (m):   6.11293527378318 
+
+classes:  00042
+poses:  [-174   14]
+predicted_pose:  [-167.79979    18.814522]
+Iteration:   47   Error latlng (m):   7.84998287834973 
+
+classes:  00086
+poses:  [-186 -212]
+predicted_pose:  [-179.66742 -210.44481]
+Iteration:   48   Error latlng (m):   6.520751168465477 
+
+classes:  00034
+poses:  [-66   2]
+predicted_pose:  [-54.73515     7.3747697]
+Iteration:   49   Error latlng (m):   12.48138648573777 
+
+classes:  00071
+poses:  [-337 -141]
+predicted_pose:  [-341.1928  -133.85054]
+Iteration:   50   Error latlng (m):   8.288210432597603 
+
+classes:  00120
+poses:  [-39  -5]
+predicted_pose:  [-33.08179  -10.412911]
+Iteration:   51   Error latlng (m):   8.020274849038177 
+
+classes:  00037
+poses:  [-118   14]
+predicted_pose:  [-119.08823    18.124338]
+Iteration:   52   Error latlng (m):   4.2654896196939465 
+
+classes:  00062
+poses:  [-346  -59]
+predicted_pose:  [-347.90454   -43.640335]
+Iteration:   53   Error latlng (m):   15.477292490693536 
+
+classes:  00033
+poses:  [-58   2]
+predicted_pose:  [-54.796192     0.48004305]
+Iteration:   54   Error latlng (m):   3.546075822030667 
+
+classes:  00039
+poses:  [-139   13]
+predicted_pose:  [-136.75937    18.342493]
+Iteration:   55   Error latlng (m):   5.793328905630728 
+
+classes:  00100
+poses:  [ -43 -234]
+predicted_pose:  [ -36.818123 -239.39355 ]
+Iteration:   56   Error latlng (m):   8.204025663934885 
+
+classes:  00113
+poses:  [  -4 -104]
+predicted_pose:  [   1.7871226 -115.38875  ]
+Iteration:   57   Error latlng (m):   12.774755298117492 
+
+classes:  00049
+poses:  [-252   18]
+predicted_pose:  [-250.28908    21.887545]
+Iteration:   58   Error latlng (m):   4.247382509373953 
+
+classes:  00087
+poses:  [-175 -213]
+predicted_pose:  [-171.90387 -210.92596]
+Iteration:   59   Error latlng (m):   3.7266133592841744 
+
+classes:  00073
+poses:  [-323 -160]
+predicted_pose:  [-324.36597 -166.54225]
+Iteration:   60   Error latlng (m):   6.683331588111166 
+
+classes:  00028
+poses:  [0 0]
+predicted_pose:  [10.863453   5.7803044]
+Iteration:   61   Error latlng (m):   12.305548686804821 
+
+classes:  00117
+poses:  [-14 -36]
+predicted_pose:  [-3.5911798e-03 -3.1483231e+01]
+Iteration:   62   Error latlng (m):   14.70716375636506 
+
+classes:  00082
+poses:  [-229 -214]
+predicted_pose:  [-230.52531 -221.00493]
+Iteration:   63   Error latlng (m):   7.169073046332396 
+
+classes:  00060
+poses:  [-341  -40]
+predicted_pose:  [-323.04184  -49.90679]
+Iteration:   64   Error latlng (m):   20.509511122793796 
+
+classes:  00107
+poses:  [ -22 -164]
+predicted_pose:  [ -28.40447 -157.67166]
+Iteration:   65   Error latlng (m):   9.003616572938977 
+
+classes:  00093
+poses:  [-109 -233]
+predicted_pose:  [-125.43001 -231.19989]
+Iteration:   66   Error latlng (m):   16.528325875596895 
+
+classes:  00101
+poses:  [ -39 -222]
+predicted_pose:  [ -45.27686 -202.99556]
+Iteration:   67   Error latlng (m):   20.01418781439764 
+
+classes:  00029
+poses:  [-15   0]
+predicted_pose:  [-15.855658  -3.073167]
+Iteration:   68   Error latlng (m):   3.1900636084984098 
+
+classes:  00072
+poses:  [-330 -150]
+predicted_pose:  [-315.6047  -155.67136]
+Iteration:   69   Error latlng (m):   15.472193637667337 
+
+classes:  00047
+poses:  [-230   18]
+predicted_pose:  [-210.69586    16.960493]
+Iteration:   70   Error latlng (m):   19.332106083711086 
+
+classes:  00059
+poses:  [-338  -29]
+predicted_pose:  [-318.87268  -38.88808]
+Iteration:   71   Error latlng (m):   21.5320338767658 
+
+classes:  00099
+poses:  [ -44 -240]
+predicted_pose:  [ -53.80004 -222.61992]
+Iteration:   72   Error latlng (m):   19.95264466699855 
+
+classes:  00112
+poses:  [  -7 -113]
+predicted_pose:  [ -15.034575 -112.6722  ]
+Iteration:   73   Error latlng (m):   8.041259459271979 
+
+classes:  00066
+poses:  [-355  -93]
+predicted_pose:  [-335.35297 -108.81258]
+Iteration:   74   Error latlng (m):   25.21990289281649 
+
+classes:  00090
+poses:  [-143 -222]
+predicted_pose:  [-152.32207 -222.52359]
+Iteration:   75   Error latlng (m):   9.336759855214156 
+
+classes:  00065
+poses:  [-353  -87]
+predicted_pose:  [-332.7269   -95.53343]
+Iteration:   76   Error latlng (m):   21.995865945165864 
+
+classes:  00088
+poses:  [-163 -216]
+predicted_pose:  [-171.6235  -216.58453]
+Iteration:   77   Error latlng (m):   8.643292884635136 
+
+classes:  00074
+poses:  [-315 -171]
+predicted_pose:  [-296.8675  -182.85577]
+Iteration:   78   Error latlng (m):   21.664422384224352 
+
+classes:  00098
+poses:  [ -43 -249]
+predicted_pose:  [ -45.04912 -224.51584]
+Iteration:   79   Error latlng (m):   24.569759028452957 
+
+classes:  00041
+poses:  [-162   13]
+predicted_pose:  [-149.55592    14.104767]
+Iteration:   80   Error latlng (m):   12.49302007799178 
+
+classes:  00058
+poses:  [-335  -18]
+predicted_pose:  [-312.86786  -26.73003]
+Iteration:   81   Error latlng (m):   23.791702232153508 
+
+classes:  00061
+poses:  [-343  -49]
+predicted_pose:  [-324.44012   -62.043255]
+Iteration:   82   Error latlng (m):   22.684696940501944 
+
+classes:  00064
+poses:  [-352  -81]
+predicted_pose:  [-327.21844 -105.92092]
+Iteration:   83   Error latlng (m):   35.14509633862456 
+
+classes:  00096
+poses:  [ -74 -244]
+predicted_pose:  [ -93.04793 -238.66322]
+Iteration:   84   Error latlng (m):   19.781424153141458 
+
+classes:  00121
+poses:  [-49  -4]
+predicted_pose:  [-51.63592   -7.833444]
+Iteration:   85   Error latlng (m):   4.652244173436439 
+
+classes:  00097
+poses:  [ -67 -244]
+predicted_pose:  [ -76.02977 -236.91776]
+Iteration:   86   Error latlng (m):   11.475841443784873 
+
+classes:  00055
+poses:  [-318   29]
+predicted_pose:  [-295.94614    22.507078]
+Iteration:   87   Error latlng (m):   22.989800570621828 
+
+classes:  00110
+poses:  [ -12 -134]
+predicted_pose:  [ -19.083445 -127.56039 ]
+Iteration:   88   Error latlng (m):   9.573077213380488 
+
+classes:  00048
+poses:  [-241   18]
+predicted_pose:  [-225.74815   16.71078]
+Iteration:   89   Error latlng (m):   15.306237495435708 
+
+classes:  00114
+poses:  [-19 -72]
+predicted_pose:  [-25.367224 -62.348885]
+Iteration:   90   Error latlng (m):   11.562247487057217 
+
+classes:  00032
+poses:  [-47   1]
+predicted_pose:  [-49.239372  -1.258369]
+Iteration:   91   Error latlng (m):   3.180411685514328 
+
+classes:  00030
+poses:  [-28  -1]
+predicted_pose:  [-30.032175  -5.515681]
+Iteration:   92   Error latlng (m):   4.95187928849216 
+
+classes:  00054
+poses:  [-300   23]
+predicted_pose:  [-280.4552     19.386078]
+Iteration:   93   Error latlng (m):   19.87610707579647 
+
+Median:  9.170188214076568 
+
+Number of inliers: 94 / 94 = 100.0 %, Mean error of inliers: 11.1627661916
+

@@ -21,7 +21,7 @@ if __name__ == "__main__":
     learning_rate = float(sys.argv[2])
     
     batch_size = 75
-    epochs = 50
+    epochs = 100
     #learning_rate = 1e-6
 
     # Train model
@@ -52,7 +52,7 @@ if __name__ == "__main__":
           batch_size = batch_size,
           epochs = epochs,
           validation_data=(X_test, y_test),
-          callbacks=[checkpointer,es,tb])
+          callbacks=[checkpointer,es, tb])
 
     
     print(history.history.keys())

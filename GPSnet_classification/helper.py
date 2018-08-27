@@ -68,7 +68,7 @@ def preprocess(images):
 
     for i in tqdm(range(len(images))):
         X = cv2.imread(images[i])
-        X = cv2.resize(X, (224, 224))
+        #X = cv2.resize(X, (224, 224))
         #Y = np.expand_dims(X, axis=0)
         images_out.append(X)
     return images_out

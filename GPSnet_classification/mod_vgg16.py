@@ -68,22 +68,26 @@ def create_my_model():
     for layer in my_model.layers:
         layer.trainable = False
     
+    """
     #Use the generated model
     output_base_model = my_model.layers[-6].output
     x = MaxPooling2D(pool_size=(4, 4), strides=(4, 4), name="block4_pool", padding='valid')(output_base_model)
     x = Flatten(name='flatten')(x)
+    """
     
     #Add the fully-connected layers 
-    #x = Flatten(name='flatten')(output_base_model)
+    output_base_model = my_model.layers[-1].output
+    x = Flatten(name='flatten')(output_base_model)
+    
     x = BatchNormalization(name = 'bn_flatten')(x)
     #x = Dropout(0.4, name='drop_flatten')(x)
-    x = Dense(256, activation='relu', kernel_initializer= 'he_normal', name='fc1')(x)
+    x = Dense(64, activation='relu', kernel_initializer= 'he_normal', name='fc1')(x)
     x = BatchNormalization(momentum = 0.9, name='bn1')(x)
     #x = Dropout(0.4, name='drop_fc1')(x)
-    x = Dense(256, activation='relu', kernel_initializer= 'he_normal', name='fc2')(x)
+    x = Dense(64, activation='relu', kernel_initializer= 'he_normal', name='fc2')(x)
     x = BatchNormalization(momentum = 0.9, name='bn2')(x)
     #x = Dropout(0.4, name='drop_fc2')(x)
-    x = Dense(256, activation='relu', kernel_initializer= 'he_normal', name='fc3')(x)
+    x = Dense(64, activation='relu', kernel_initializer= 'he_normal', name='fc3')(x)
     x = BatchNormalization(momentum = 0.9, name='bn3')(x)
     #x = Dropout(0.4, name='drop_fc3')(x)   
     
@@ -102,19 +106,23 @@ def create_my_model_without_dropout():
     img_input = Input(shape=(224,224,3), name = 'image_input')
     my_model = VGG16_Places365(weights= 'places', input_tensor = img_input, include_top = False)
 
+    """
     #Use the generated model 
     output_base_model = my_model.layers[-6].output
     x = MaxPooling2D(pool_size=(4, 4), strides=(4, 4), name="block4_pool", padding='valid')(output_base_model)
     x = Flatten(name='flatten')(x)
+    """
     
     #Add the fully-connected layers 
-    #x = Flatten(name='flatten')(output_base_model)
+    output_base_model = my_model.layers[-1].output
+    x = Flatten(name='flatten')(output_base_model)
+    
     x = BatchNormalization(name = 'bn_flatten')(x)
-    x = Dense(256, activation='relu', name='fc1')(x)
+    x = Dense(64, activation='relu', name='fc1')(x)
     x = BatchNormalization(name='bn1')(x)
-    x = Dense(256, activation='relu', name='fc2')(x)
+    x = Dense(64, activation='relu', name='fc2')(x)
     x = BatchNormalization(name='bn2')(x)
-    x = Dense(256, activation='relu', name='fc3')(x)
+    x = Dense(64, activation='relu', name='fc3')(x)
     x = BatchNormalization(name='bn3')(x)
     
     fc_pose_utmx_utmy = Dense(2, name = 'fc_pose_utmx_utmy')(x)
