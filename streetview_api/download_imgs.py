@@ -106,9 +106,11 @@ with open(datafilename) as csvDataFile:
 
                 ### step 2-A: [type 1] (for the given existing panoid) using panorama-ID, download images
 
-                Location = str("%05d" % num_true_data) + '_' + str(targetLat) + '_' + str(targetLon)
+                #Location = str("%05d" % num_true_data) + '_' + str(targetLat) + '_' + str(targetLon)
+                Location = str(targetLat) + '_' + str(targetLon)
                 panoid = panoIdsNearTargetGPS[index]['panoid']
-
+                
+                """
                 headings = [0, 90, 180, 270]  # we recommend do not change this part
                 for ithHeading in headings:
                     HeadingImgSaveDir = ImgSaveDir + Location + '/HeadingImgs/'
@@ -119,6 +121,7 @@ with open(datafilename) as csvDataFile:
                     streetview.api_download(panoid, ithHeading, HeadingImgSaveDir, key)
 
                 print('{} Heading imgs Saved.'.format(num_true_data))
+                """
 
                 ### step 2-B: [type 2]
                 # 2-B-1: download pathes

@@ -86,6 +86,6 @@ def getKings():
         classes_test.append((datasource_test.classes[i]))
 
 
-
     return datasource(images_train, poses_train, filenames_train, classes_train), datasource(images_test, poses_test, filenames_test, classes_test)
+
 

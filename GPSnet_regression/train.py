@@ -27,28 +27,26 @@ if __name__ == "__main__":
     # Train model
     model = mod_vgg16.create_my_model() 
     adam = Adam(lr = learning_rate, clipvalue=2) #decay = 1e-5
-    model.compile(loss='sparse_categorical_crossentropy', optimizer = adam, metrics=['accuracy'])
+    model.compile(loss={'fc_pose_utmx_utmy': mod_vgg16.euc_loss}, optimizer = adam)
 
     dataset_train, dataset_test = helper.getKings()
     
     # get 'helper.datasource' type datasets; its images and poses compoments are stored as 'list' type, and images are numpy array size of (224, 224,3) and poses are tuple of (utmx, utmy)
     X_train = np.squeeze(np.array(dataset_train.images))
-    y_train = np.squeeze(np.array(dataset_train.classes))
-    y_train = np.reshape(y_train, (-1,1))
+    y_train = np.squeeze(np.array(dataset_train.poses))
     
     X_test = np.squeeze(np.array(dataset_test.images))
-    y_test = np.squeeze(np.array(dataset_test.classes))
-    y_test = np.reshape(y_test, (-1,1))
+    y_test = np.squeeze(np.array(dataset_test.poses))
     
     print "X_train.shape", X_train.shape
     print "y_train.shape", y_train.shape
     
     print "X_test.shape", X_test.shape
     print "y_test.shape", y_test.shape
-
+    
     # Setup checkpointing
     checkpointer = ModelCheckpoint(filepath="./checkpoint_weights.h5", verbose=1, save_best_only=True, save_weights_only = True)
-    es = EarlyStopping(patience = 5, monitor='val_acc')
+    es = EarlyStopping(patience=5, monitor='val_loss')
     tb = TensorBoard(log_dir='vgg16_tl')
     
     
@@ -62,15 +60,16 @@ if __name__ == "__main__":
     print(history.history.keys())
     plt.figure(1)
     
-    # summarize history for acc  
+    # summarize history for loss  
 
-    plt.plot(history.history['acc'])
-    plt.plot(history.history['val_acc'])
-    plt.title('model accuracy')
-    plt.ylabel('accuracy')
+    plt.plot(history.history['loss'])
+    plt.plot(history.history['val_loss'])
+    plt.title('model loss')
+    plt.ylabel('loss')
     plt.xlabel('epoch')
     plt.legend(['train', 'test'], loc='upper left')
     #plt.show()
     plt.savefig("./training_graph.png")
     
     model.save_weights("./trained_weights.h5")
+

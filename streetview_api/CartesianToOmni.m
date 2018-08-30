@@ -2,7 +2,7 @@ function OutputImgs = CartesianToOmni(dir, seqname)
     %% Plot Spherical Point Cloud with Texture Mapping
     % Generate a sphere consisting of 2400-by-2400 faces.
 
-    numFaces = 6000;
+    numFaces = 3000;
     [x,y,z] = sphere(numFaces);
     %% 
     % Plot the sphere using the default color map.
@@ -42,7 +42,7 @@ function OutputImgs = CartesianToOmni(dir, seqname)
     savedir = strcat(temp, filename)
     set(gcf, 'Color','black', 'PaperPosition', [0 0 224/150 224/150])
     %set(gcf, 'Color','black', 'PaperUnits','inches')
-    export_fig(savedir, '-dpng', '-transparent', '-r600')
+    export_fig(savedir, '-dpng', '-transparent', '-r300')
     
     %fig = gcf;
     %fig.PaperUnits = 'inches';
